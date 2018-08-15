@@ -1,11 +1,12 @@
 import { withPluginApi } from 'discourse/lib/plugin-api'
 
 function initializePlugin(api) {
-	/*getCurrentUser() - can display "You rolled a 6" instead of "Arkaal rolled a 6" for logged in user*/
+	/*can display "You rolled a 6" instead of "Arkaal rolled a 6" for logged in user*/
+	var username = getCurrentUser();
 
     api.decorateWidget('post:after', helper => {
-	   return helper.h('p.fancy', `I rolled a ${helper.attrs.id} (4D6 - 4).`);
-	});
+		return helper.h('p.fancy', `I'm an HTML paragraph on post with id ${helper.attrs.id}, ${username}`);
+    });
 }
 
 export default {
