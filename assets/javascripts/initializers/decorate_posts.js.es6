@@ -2,7 +2,7 @@ import { withPluginApi } from 'discourse/lib/plugin-api'
 
 function initializePlugin(api) {
 	/*can display "You rolled a 6" instead of "Arkaal rolled a 6" for logged in user*/
-	var username = getCurrentUser();
+	var username = 'You'; //getCurrentUser();
 
     api.decorateWidget('post:after', helper => {
 		return helper.h('p.fancy', `I'm an HTML paragraph on post with id ${helper.attrs.id}, ${username}`);
