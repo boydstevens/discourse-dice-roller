@@ -6,6 +6,7 @@
 register_asset "stylesheets/diceroller.scss"
 
 DICEROLLER_PLUGIN_NAME ||= "diceroller".freeze
+DICE_FIELD_NAME ||= "dice"
 
 enabled_site_setting :dieroll_enabled
 

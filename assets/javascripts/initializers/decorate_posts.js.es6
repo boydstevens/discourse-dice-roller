@@ -12,7 +12,7 @@ function initializePlugin(api) {
 		
 		let display = helper.h('p.roll', `On post #${postId}, ${username} rolled a ${roll} (1d10).`);
 		if (rolltwice == 0){
-			display = [display, helper.h('p.roll', `On post #${postId}, ${username} rolled a ${rolltwice} (1d10).`)];
+			display = [display, helper.h('p.roll', `On post #${postId}, ${username} rolled a ${roll2} (1d10).`)];
 		}
 		
 		return helper.h('div.dierolls', display);
@@ -20,7 +20,7 @@ function initializePlugin(api) {
 	
 	  api.addToolbarPopupMenuOptionsCallback(() => {
 		return {
-		  action: 'insertMark',
+		  action: 'insertDieRoll',
 		  icon: 'black-tie',
 		  label: 'rolldie.title'
 		};
@@ -28,9 +28,12 @@ function initializePlugin(api) {
 
 	  api.modifyClass("controller:composer", {
 		actions: {
-		  insertMark() {
-				 alert('add a roll!');
-				 $('textarea.d-editor-input').after('<input placeholder="Die Roll Descriptive Text"></input><input placeholder="Dice Text"></input>');
+		  insertDieRoll() {
+				//this.get("toolbarEvent").addText("[[Dice||<descriptive text>||<dice to roll>]]");		
+				this.get("toolbarEvent").applySurround(
+						  "[[Dice||",
+						  "||<dice to roll>]]",
+						  "rolltext");				
 		  }
 		}
 	  });

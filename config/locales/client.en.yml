@@ -1,6 +1,6 @@
 en:
   js:
     rolldie:
-      title: Highlight Text
+      title: Add a die roll
     composer:
-      rolltext: "Add a dice roll to this post."
+      rolltext: "<descriptive text>"
