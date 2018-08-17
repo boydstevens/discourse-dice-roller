@@ -12,7 +12,7 @@ function initializePlugin(api) {
 		
 		let display = helper.h('p.roll', `On post #${postId}, ${username} rolled a ${roll} (1d10).`);
 		if (rolltwice == 0){
-			display = display.append(helper.h('p.roll', `On post #${postId}, ${username} rolled a ${rolltwice} (1d10).`));
+			display = [display, helper.h('p.roll', `On post #${postId}, ${username} rolled a ${rolltwice} (1d10).`)];
 		}
 		
 		return helper.h('div.dierolls', display);
