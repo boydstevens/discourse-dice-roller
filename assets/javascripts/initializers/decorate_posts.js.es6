@@ -12,11 +12,28 @@ function initializePlugin(api) {
 		
 		let display = helper.h('p.roll', `On post #${postId}, ${username} rolled a ${roll} (1d10).`);
 		if (rolltwice == 0){
-			display = display + helper.h('p.roll', `On post #${postId}, ${username} rolled a ${rolltwice} (1d10).`)
+			display = display.append(helper.h('p.roll', `On post #${postId}, ${username} rolled a ${rolltwice} (1d10).`));
 		}
 		
 		return helper.h('div.dierolls', display);
 	});
+	
+	  api.addToolbarPopupMenuOptionsCallback(() => {
+		return {
+		  action: 'insertMark',
+		  icon: 'black-tie',
+		  label: 'rolldie.title'
+		};
+	  });
+
+	  api.modifyClass("controller:composer", {
+		actions: {
+		  insertMark() {
+				 alert('add a roll!');
+				 $('textarea.d-editor-input').after('<input placeholder="Die Roll Descriptive Text"></input><input placeholder="Dice Text"></input>');
+		  }
+		}
+	  });
 }
 
 export default {
