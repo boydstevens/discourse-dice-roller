@@ -3,7 +3,7 @@
 # version: 0.0.5
 # authors: Arkaal
 
-#register_asset "stylesheets/diceroller.scss"
+register_asset "stylesheets/diceroller.scss"
 
 DICEROLLER_PLUGIN_NAME ||= "diceroller".freeze
 

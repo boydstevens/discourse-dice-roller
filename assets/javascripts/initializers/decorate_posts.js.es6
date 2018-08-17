@@ -11,7 +11,7 @@ function initializePlugin(api) {
 		let rolltwice = (postId % 3);
 		
 		let display = helper.h('p.roll', `On post #${postId}, ${username} rolled a ${roll} (1d10).`);
-		if (rolltwice = 0){
+		if (rolltwice == 0){
 			display = display + helper.h('p.roll', `On post #${postId}, ${username} rolled a ${rolltwice} (1d10).`)
 		}
 		
